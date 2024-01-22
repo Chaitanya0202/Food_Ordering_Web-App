@@ -5,9 +5,6 @@ function Welcome() {
   const styleHero = {
     height: "50rem",
     width: "100%",
-    
-    
-
   };
   return (
     <div className="bg-primary bg-opacity-10 pb-5">
@@ -43,20 +40,17 @@ function Welcome() {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div
-            className="carousel-inner rounded  "
-            style={styleHero}
-          >
+          <div className="carousel-inner rounded  " style={styleHero}>
             <div className="carousel-item active ">
               <img
-                src="https://assets.materialup.com/uploads/e5d158cd-274e-4438-b4ab-375ef0598cfd/preview.jpg"
+                src="https://assets.materialup.com/uploads/f3ac51e6-2a2e-42f7-86f6-3f2ed66eedbe/preview.jpg"
                 className="d-block w-100 "
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src="https://assets.materialup.com/uploads/f3ac51e6-2a2e-42f7-86f6-3f2ed66eedbe/preview.jpg"
+                src="https://assets.materialup.com/uploads/e5d158cd-274e-4438-b4ab-375ef0598cfd/preview.jpg"
                 className="d-block w-100"
                 alt="..."
               />
