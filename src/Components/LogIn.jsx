@@ -28,6 +28,10 @@ function LogIn() {
         
         console.log("lOG IN sUCCESS")
         
+        const isLogedIn = localStorage.getItem("isLogedIn");
+        localStorage.setItem("isLogedIn", true);
+        console.log(isLogedIn)
+        
         navigate("/cartPage")
     }
     else{

@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGlobelContext } from "../Context/ProductContext";
 
 const pages = ["Products", "Pricing", "Offers"];
@@ -48,6 +48,12 @@ const Navbaar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  let navigate = useNavigate();
+  const handleLogout = () => {
+    // const isLogedIn = localStorage.getItem("isLogedIn");
+    localStorage.setItem("isLogedIn", false);
+    navigate("/logIn");
   };
 
   return (
@@ -105,7 +111,11 @@ const Navbaar = () => {
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Link
                     className="text-decoration-none text-black"
-                    to={page === "Products" ? "/showCart" : `/${page.toLowerCase()}`}
+                    to={
+                      page === "Products"
+                        ? "/showCart"
+                        : `/${page.toLowerCase()}`
+                    }
                   >
                     {page}
                   </Link>
@@ -143,7 +153,9 @@ const Navbaar = () => {
               >
                 <Link
                   className="text-decoration-none text-white"
-                  to={page === "Products" ? "/cartPage" : `/${page.toLowerCase()}`}
+                  to={
+                    page === "Products" ? "/cartPage" : `/${page.toLowerCase()}`
+                  }
                 >
                   {page}
                 </Link>
@@ -186,7 +198,12 @@ const Navbaar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem
+                  key={setting}
+                  onClick={
+                    setting === "Logout" ? handleLogout : handleCloseUserMenu
+                  }
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

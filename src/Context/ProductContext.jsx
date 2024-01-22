@@ -5,7 +5,8 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   
-  const BASE_URL = "https://foododeringwebappserver-production.up.railway.app/";
+  // const BASE_URL = "https://foododeringwebappserver-production.up.railway.app/";
+  const BASE_URL = "http://localhost:8080/";
 
   var [price, setPrice] = useState([
     23, 40, 50, 15, 60, 80, 50, 30, 83, 48, 23, 10, 58, 900,
