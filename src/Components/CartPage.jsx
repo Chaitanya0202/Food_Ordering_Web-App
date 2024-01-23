@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useGlobelContext } from "../Context/ProductContext";
+import { ClipLoader } from 'react-spinners';
+
 
 function CartPage() {
   
@@ -9,10 +11,11 @@ function CartPage() {
     
   const [product, setProduct] = useState([]);
 
- 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     LoadProduct();
+    setLoading(false)
   }, []);
   const LoadProduct = async () => {
     const responce = await axios.get(
@@ -29,20 +32,25 @@ function CartPage() {
   };
   return (
     <>
-      <h1>Cart Page </h1>
-
+    <h1>Cart Page </h1> 
+    {loading ? (
+      <div>
+      <h2>Loading....</h2>
+      <ClipLoader color="#de1818" loading={loading} size={100} />
+      </div>
+    ) : (      
       <div className="d-flex flex-row flex-wrap justify-content-around">
         {product.map((t, index) => (
           <div
             className="card shadow m-2 "
-            style={{ width: "18rem" }}
+            style={{ width: "18rem"}}
             key={index}
           >
             <img src={t.strCategoryThumb} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">{t.strCategory}</h5>
               <p
-                className="card-text"
+                className="card-text "
                 style={{
                   maxHeight: "100px",
                   overflow: "hidden",
@@ -60,7 +68,8 @@ function CartPage() {
             </div>
           </div>
         ))}
-      </div>
+      </div>      
+    )}
     </>
   );
 }
