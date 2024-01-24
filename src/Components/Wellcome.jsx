@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MenuCarousel from "./MenuCarousel";
 
 function Welcome() {
   const styleHero = {
@@ -89,6 +90,7 @@ function Welcome() {
           </button>
         </div>
       </div>
+      <MenuCarousel/>
     </div>
   );
 }
