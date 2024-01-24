@@ -54,7 +54,6 @@ function MenuCarousel() {
     <>
     <Fade direction="left" duration={1000} delay={200}  distance="20px" cascade>
     <div><h3>Menu</h3></div>
-  
 
 
       <div className="container mt-5">
