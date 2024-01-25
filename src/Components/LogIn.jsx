@@ -1,7 +1,9 @@
+
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 function LogIn() {
     let navigate=useNavigate()
@@ -32,6 +34,7 @@ function LogIn() {
         localStorage.setItem("isLogedIn", true);
         console.log(isLogedIn)
         
+        
         navigate("/cartPage")
     }
     else{
@@ -47,6 +50,7 @@ function LogIn() {
     <>
     
     <div className="container mt-5">
+    
     <h3 className="tex-center text-bold ">lOG iN Page</h3>
       <form  onSubmit={(e)=>onSubmitHandler(e)}>
         <div className="row">
@@ -67,7 +71,7 @@ function LogIn() {
               ></input>
             </div>
             <div className="mb-3">
-              <label htmlFor="pass" className="form-label">
+              <label htmlFor="pass" className="form-label mx-4">
                 Password
               </label>
               <input
@@ -80,13 +84,25 @@ function LogIn() {
               ></input>
             </div>
            
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary mb-4">
               Log In
             </button>
-            <Link className="btn btn-outline-danger mx-2"   to={"/"}>Cancel</Link>
+            <Link className="btn btn-outline-danger mx-2 mb-4"   to={"/"}>Cancel</Link>
+            <GoogleOAuthProvider clientId="413016402359-b165dqc2v0lp0gcmses7paj9mrrvgvm7.apps.googleusercontent.com">
+            <GoogleLogin
+              onSuccess={(credentialResponse) => {
+                const decoded = jwtDecode(credentialResponse.credential);
+                console.log(decoded);
+              }}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
+          </GoogleOAuthProvider>
           </div>
         </div>
         </form>
+        
       </div>
     </>
   );
