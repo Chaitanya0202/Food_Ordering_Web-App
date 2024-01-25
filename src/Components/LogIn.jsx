@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { useGlobelContext } from "../Context/ProductContext";
 
 function LogIn() {
     let navigate=useNavigate()
@@ -12,13 +13,22 @@ function LogIn() {
     password: "",
   });
   const { email, password } = logInfo;
+  const { count, cart,loginData,setLoginData } = useGlobelContext();
 
   const onInputChange = (e) => {
     setLogInfo({ ...logInfo, [e.target.name]: e.target.value });
     // console.log(email);
     // console.log(password);
   };
-  
+  const isLogedIn=()=>{
+    console.log("lOG IN sUCCESS")
+        
+    const isLogedIn = localStorage.getItem("isLogedIn");
+    localStorage.setItem("isLogedIn", true);
+    navigate("/cartPage")
+
+    console.log(isLogedIn)
+  }
   const onSubmitHandler= async(e)=>{
     e.preventDefault();
     
@@ -28,14 +38,8 @@ function LogIn() {
     
     if(result.data.password===password){
         
-        console.log("lOG IN sUCCESS")
-        
-        const isLogedIn = localStorage.getItem("isLogedIn");
-        localStorage.setItem("isLogedIn", true);
-        console.log(isLogedIn)
-        
-        
-        navigate("/cartPage")
+      isLogedIn()
+       
     }
     else{
       alert("Invalid Email")
@@ -92,7 +96,10 @@ function LogIn() {
             <GoogleLogin
               onSuccess={(credentialResponse) => {
                 const decoded = jwtDecode(credentialResponse.credential);
+                setLoginData(decoded)
                 console.log(decoded);
+                isLogedIn()
+                console.log("log in data is ",loginData)
               }}
               onError={() => {
                 console.log("Login Failed");

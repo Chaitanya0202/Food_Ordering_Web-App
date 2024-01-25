@@ -17,6 +17,7 @@ import CartPage from './Components/CartPage.jsx';
 import { AppProvider } from './Context/ProductContext.jsx';
 
 import ShowCart from './Components/ShowCart.jsx';
+import Profile from './Components/Profile.jsx';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
     
     <Route exact path="/cartPage" element={<CartPage/>} />
     <Route exact path="/showCart" element={<ShowCart/>} />
+    <Route exact path="/profile" element={<Profile/>} />
     
     
     

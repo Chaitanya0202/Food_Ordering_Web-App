@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
   const [quantity, setQuantity] = useState([
     23, 40, 50, 15, 60, 80, 50, 30, 83, 48, 23, 10, 58, 900,
   ]);
-
+const[loginData,setLoginData]=useState({})
   const [count, setCount] = useState(0);
 
   const cartAdded = (i) => {
@@ -27,10 +27,11 @@ const AppProvider = ({ children }) => {
 
     setCount(count + 1);
   };
-
-  localStorage.setItem("isLogedIn", false);
+  
+  
   const placeOrder = () => {
     const isLogedIn = localStorage.getItem("isLogedIn");
+    console.log("this ia ",isLogedIn)
     if (isLogedIn === "true") {
       alert("Order Placed SuccesFull Thank You..!");
     } else {
@@ -50,6 +51,8 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         price,
+        setPrice,
+        setQuantity,
         cart,
         cartAdded,
         BASE_URL,
@@ -57,6 +60,8 @@ const AppProvider = ({ children }) => {
         quantity,
         setCart,
         placeOrder,
+        loginData,
+        setLoginData  
       }}
     >
       {children}

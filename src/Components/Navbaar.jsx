@@ -30,7 +30,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Navbaar = () => {
-  const { count, cart } = useGlobelContext();
+  const { count, cart,loginData,setLoginData } = useGlobelContext();
+  
+  const { given_name, email, picture } = loginData;
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -51,9 +53,26 @@ const Navbaar = () => {
   };
   let navigate = useNavigate();
   const handleLogout = () => {
+    // Add any additional logout logic here, such as clearing authentication state
     // const isLogedIn = localStorage.getItem("isLogedIn");
     localStorage.setItem("isLogedIn", false);
     navigate("/logIn");
+  };
+
+
+
+  const handleMenuOptionClick = (setting) => {
+    // Handle different menu options here
+    if (setting === "Profile") {
+      // Navigate to the profile page
+      navigate("/profile");
+    } else if (setting === "Logout") {
+      // Handle logout logic
+      handleLogout();
+    }
+
+    // Close the user menu
+    handleCloseUserMenu();
   };
 
   return (
@@ -176,7 +195,7 @@ const Navbaar = () => {
                 <Avatar
                   sx={{ mx: 2 }}
                   alt="Remy Sharp"
-                  src="/static/images/avatar/2.jpg"
+                  src={picture}
                 />
               </IconButton>
             </Tooltip>
@@ -200,9 +219,8 @@ const Navbaar = () => {
               {settings.map((setting) => (
                 <MenuItem
                   key={setting}
-                  onClick={
-                    setting === "Logout" ? handleLogout : handleCloseUserMenu
-                  }
+                  
+                  onClick={() => handleMenuOptionClick(setting)}
                 >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
