@@ -1,6 +1,10 @@
+
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import GoogleLoginComponent from "./GoogleLogin";
 
 export default function SignUp() {
   let navigate = useNavigate();
@@ -89,12 +93,13 @@ export default function SignUp() {
                 maxlength="10" minLength={"6"}
               ></input>
             </div>
-            <button type="submit" className="btn btn-outline-primary mx-2">
+            <button type="submit" className="btn btn-outline-primary m-2">
               Submit
             </button>
-            <Link className="btn btn-outline-danger" to={"/"}>
+            <Link className="btn btn-outline-danger m-2" to={"/"}>
               Cancel
             </Link>
+            <GoogleLoginComponent/>
           </form>
         </div>
       </div>
