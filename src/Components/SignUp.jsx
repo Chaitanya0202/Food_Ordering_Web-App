@@ -3,6 +3,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleLoginComponent from "./GoogleLoginComponent";
 
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function SignUp() {
   let navigate = useNavigate();
 
@@ -14,6 +19,22 @@ export default function SignUp() {
   });
 
   const { name, email, password, phone } = user;
+
+  const isLogedIn = () => {
+    console.log("lOG IN sUCCESS");
+
+    const isLogedIn = localStorage.getItem("isLogedIn");
+    localStorage.setItem("isLogedIn", true);
+
+    toast.success("Log In SuccesFull", {
+      position: "top-center",
+      autoClose:2000,
+      onClose: () => {
+        // Navigate to cartPage after the toast is closed
+        navigate("/cartPage");
+      },
+    });
+  };
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -113,6 +134,7 @@ export default function SignUp() {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

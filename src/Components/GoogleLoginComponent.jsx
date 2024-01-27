@@ -5,6 +5,9 @@ import { jwtDecode } from "jwt-decode";
 import { useGlobelContext } from "../Context/ProductContext";
 import { Link, useNavigate } from "react-router-dom";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function GoogleLoginComponent() {
   let navigate = useNavigate();
   const { count, cart, loginData, setLoginData } = useGlobelContext();
@@ -13,9 +16,15 @@ function GoogleLoginComponent() {
 
     const isLogedIn = localStorage.getItem("isLogedIn");
     localStorage.setItem("isLogedIn", true);
-    navigate("/cartPage");
 
-    console.log(isLogedIn);
+    toast.success("Log In SuccesFull", {
+      position: "top-center",
+      autoClose:2000,
+      onClose: () => {
+        // Navigate to cartPage after the toast is closed
+        navigate("/cartPage");
+      },
+    });
   };
   return (
     <>
@@ -33,6 +42,7 @@ function GoogleLoginComponent() {
           }}
         />
       </GoogleOAuthProvider>
+      <ToastContainer />
     </>
   );
 }
