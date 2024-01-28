@@ -18,6 +18,8 @@ import { AppProvider } from './Context/ProductContext.jsx';
 
 import ShowCart from './Components/ShowCart.jsx';
 import Profile from './Components/Profile.jsx';
+import CardForm from './Components/CardForm.jsx';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -26,9 +28,10 @@ function App() {
       
     
     
-    <AppProvider>
     
     <Router>
+    <AppProvider>
+    
     
     <Navbaar/>
     <Routes>
@@ -44,16 +47,17 @@ function App() {
     <Route exact path="/cartPage" element={<CartPage/>} />
     <Route exact path="/showCart" element={<ShowCart/>} />
     <Route exact path="/profile" element={<Profile/>} />
+    <Route exact path="/card" element={<CardForm/>} />
     
     
-    
-    
+    <Route exact path="/CartForm" element={<CardForm/>} />
     
     
     </Routes>
+    
+    </AppProvider>
     <Footer/>
     </Router>
-    </AppProvider>
 {/*
 
        */}

@@ -1,9 +1,13 @@
 import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
+  let navigate = useNavigate();
   
   // const BASE_URL = "https://foododeringwebappserver-production.up.railway.app/";
   const BASE_URL = "http://localhost:8080/";
@@ -31,19 +35,23 @@ const[loginData,setLoginData]=useState({})
   
   const placeOrder = () => {
     const isLogedIn = localStorage.getItem("isLogedIn");
-    console.log("this ia ",isLogedIn)
+    
     if (isLogedIn === "true") {
-      alert("Order Placed SuccesFull Thank You..!");
+      
+      navigate("/CartForm")
+
+     
+      
     } else {
       // alert("Plz..Log In First");
-      const result = window.confirm("First You Have To Log In...!");
-      if (result) {
-        window.open("/logIn")
-        // alert("Log In Plz..")
-        // navigate("/login");
-      } else {
-        // User clicked "Cancel" or closed the dialog
-      }
+      toast.success("Please Log in..!", {
+        position: "top-center",
+        autoClose:2000,
+        onClose: () => {
+          // Navigate to cartPage after the toast is closed
+          navigate("/login");
+        },
+      });
     }
   };
 
@@ -65,6 +73,7 @@ const[loginData,setLoginData]=useState({})
       }}
     >
       {children}
+      <ToastContainer/>
     </AppContext.Provider>
   );
 };

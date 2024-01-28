@@ -65,7 +65,7 @@ export default function ShowCart() {
       <Link className="mx-2 btn btn-outline-danger mb-5" to={"/cartPage"}>
         Back To Home
       </Link>
-      <button className="mx-2 btn btn-outline-success mb-5" onClick={placeOrder}>Place Order</button>
+      <button className="mx-2 btn btn-outline-success mb-5" onClick={placeOrder}>Pay Now</button>
       <button className="mx-2 btn btn-success mb-5">Total Prize: {tot}</button>
       
     </div>

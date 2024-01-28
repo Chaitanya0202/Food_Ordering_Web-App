@@ -6,6 +6,10 @@ import { jwtDecode } from "jwt-decode";
 import { useGlobelContext } from "../Context/ProductContext";
 import GoogleLoginComponent from "./GoogleLoginComponent";
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function LogIn() {
   let navigate = useNavigate();
   const [logInfo, setLogInfo] = useState({
@@ -25,9 +29,15 @@ function LogIn() {
 
     const isLogedIn = localStorage.getItem("isLogedIn");
     localStorage.setItem("isLogedIn", true);
-    navigate("/cartPage");
 
-    console.log(isLogedIn);
+    toast.success("Log In SuccesFull", {
+      position: "top-center",
+      autoClose:2000,
+      onClose: () => {
+        // Navigate to cartPage after the toast is closed
+        navigate("/cartPage");
+      },
+    });
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -96,6 +106,7 @@ function LogIn() {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 }
