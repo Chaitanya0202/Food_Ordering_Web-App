@@ -6,11 +6,14 @@ import Navbar from './Components/NavBar';
 import AddUser from './Components/AddUser';
 import EditUser from './Components/EditUser';
 import ViewUser from './Components/ViewUser';
-import LogIn from './Components/LogIn';
+
+import LogInR from './Components/Layout/LogInR.jsx'
+import SignUpR from './Components/Layout/SignUpR.jsx'
 import Wellcome from './Components/Wellcome';
-import SignUp from './Components/SignUp';
+// import SignUp from './Components/SignUp';
 import MainPage from './Components/MainPage';
-import Navbaar from './Components/Navbaar';
+// import Navbaar from './Components/Navbaar';
+import NavBar1 from './Components/Layout/NavBar1.jsx'
 import Footer from './Components/Footer';
 
 import CartPage from './Components/CartPage.jsx';
@@ -20,6 +23,7 @@ import ShowCart from './Components/ShowCart.jsx';
 import Profile from './Components/Profile.jsx';
 import CardForm from './Components/CardForm.jsx';
 import { ToastContainer } from 'react-toastify';
+import ForgotePass from './Components/Layout/ForgotPass.jsx';
 
 
 function App() {
@@ -33,15 +37,16 @@ function App() {
     <AppProvider>
     
     
-    <Navbaar/>
+    <NavBar1/>
     <Routes>
     <Route exact path="/" element={<Wellcome/>} />
     <Route exact path='/home' element={<Home/>}/>
     <Route exact path="/addUser" element={<AddUser/>} />
     <Route exact path="/editUser/:id" element={<EditUser />} />
     <Route exact path="/viewUser/:id" element={<ViewUser/>} />
-    <Route exact path="/logIn" element={<LogIn/>} />
-    <Route exact path="/signup" element={<SignUp/>} />
+    <Route exact path="/logIn" element={<LogInR/>} />
+    <Route exact path="/signup" element={<SignUpR/>} />
+    <Route exact path="/forgotPass" element={<ForgotePass/>} />
     <Route exact path="/mainPage" element={<MainPage/>} />
     
     <Route exact path="/cartPage" element={<CartPage/>} />
