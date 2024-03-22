@@ -14,6 +14,8 @@ const AppProvider = ({ children }) => {
   })
   const[name,setName]=useState("");
   const[email,setEmail]=useState("");
+  const[imageURL,setImageURL]=useState("");
+
   let navigate = useNavigate();
 
   // const BASE_URL = "https://foododeringwebappserver-production.up.railway.app/";
