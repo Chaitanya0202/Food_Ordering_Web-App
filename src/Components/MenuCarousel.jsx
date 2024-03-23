@@ -60,7 +60,7 @@ function MenuCarousel() {
       <Carousel responsive={responsive}>
         {product.map((t, index) => (
             <div
-              className="card shadow m-2 "
+              className="card shadow m-2  "
               style={{ width: "18rem" }}
               key={index}
             >

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MenuCarousel from "./MenuCarousel";
+import HeroSection from "./HeroSection";
 
 function Welcome() {
   const styleHero = {
@@ -8,15 +9,18 @@ function Welcome() {
     width: "100%",
   };
   return (
-    <div className="bg-primary bg-opacity-10 pb-5">
-      {/*} <div className=" m-2 z-3 position-absolute ">
+    <>
+    <HeroSection />
+    {/*
+    <div className="bg-white pb-5">
+       <div className=" m-2 z-3 position-absolute ">
         <Link className="btn btn-outline-primary mx-3" to={"/signUp"}>
           Sign Up
         </Link>
         <Link className="btn btn-outline-primary" to={"/logIn"}>
           Log In
         </Link>
-  </div> */}
+  </div> 
       <div className="container-fluid">
         <div id="carouselExampleIndicators" className="carousel slide">
           <div className="carousel-indicators">
@@ -90,8 +94,10 @@ function Welcome() {
           </button>
         </div>
       </div>
+      </div>
+      */}
       <MenuCarousel/>
-    </div>
+    </>
   );
 }
 
