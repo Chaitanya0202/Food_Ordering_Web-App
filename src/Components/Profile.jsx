@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useGlobelContext } from "../Context/ProductContext";
 
 function Profile() {
-  const { count, cart, loginData, setLoginData } = useGlobelContext();
-  const { given_name, email, picture } = loginData;
-
+  const [token, setToken] = useState("");
+  const [user, setUser] = useState("");
+  
+   const [userData, setUserData] = useState(null);
+   var storedData=null;
+  // useEffect to fetch user data from localStorage when the component mounts
+  useEffect(() => {
+     storedData = localStorage.getItem('user');
+    // if (storedData) {
+    //   // Parse the stored data (assuming it's in JSON format)
+    //   const parsedData = JSON.parse(storedData);
+    //   console.log(parsedData)
+    //   setUserData(parsedData);
+    //   console.log("usedata is",userData)
+    // }
+  }, []);
+  const { imageURL,loginData, setImageURL, name,email, setName, setEmail, setData } =
+  useGlobelContext();
+  // const { given_name, email, picture } = loginData;
+  const defaultImageURL =
+    "https://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png";
+    
   // Check if the user is logged in
   if (!loginData) {
     return (
@@ -27,8 +46,8 @@ function Profile() {
           alt="..."
         />
         <div className="card-img-overlay d-flex  align-items-center ">
-          <img src={picture} className="rounded-circle mx-2" style={{}}/>
-          <h1 className="mx-3 text-uppercase"> {given_name}</h1>
+          <img src={imageURL ? imageURL : defaultImageURL} className="rounded-circle mx-2 h-28" style={{}}/>
+          <h1 className="mx-3 text-uppercase">HELLO, {storedData}</h1>
         
       </div>
       </div>

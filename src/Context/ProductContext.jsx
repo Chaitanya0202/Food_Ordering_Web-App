@@ -40,6 +40,7 @@ const AppProvider = ({ children }) => {
 
     setCount(count + 1);
   };
+  const [user, setUser] = useState({});
 
   const placeOrder = () => {
     const isLogedIn = localStorage.getItem("isLogedIn");
@@ -80,7 +81,9 @@ const AppProvider = ({ children }) => {
         setName,
         setData,
         setImageURL,
-        imageURL
+        imageURL,
+        user,
+        setUser,
       }}
     >
       {children}

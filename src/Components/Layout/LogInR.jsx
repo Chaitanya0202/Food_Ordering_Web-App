@@ -14,6 +14,8 @@ import { auth, provider } from './FirebaseConfig';
 
 
 function LogIn() {
+
+
     const [errorMsg, setErrorMsg] = useState("");
     const[user,setUser]=useState({        
         email:"",
@@ -65,7 +67,6 @@ function LogIn() {
       console.log("iMAGE",result._tokenResponse.photoUrl);
       localStorage.setItem("token", result.user.accessToken);
       localStorage.setItem("user", JSON.stringify(result.user));
-      navigate("/profile");
       let na=result.user.displayName
       setEmail(result.user.email);
       console.log(email)
@@ -75,6 +76,7 @@ function LogIn() {
       // setData({...data,name: na})
       
       
+      navigate("/profile");
       // console.log("this is data ..",data)
     } catch (error) {
       console.log(error);
