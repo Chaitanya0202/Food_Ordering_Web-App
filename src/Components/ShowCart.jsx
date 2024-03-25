@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function ShowCart() {
   const { cart, price, incr, quantity, setCart,placeOrder } = useGlobelContext();
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const removeProduct = (index) => {

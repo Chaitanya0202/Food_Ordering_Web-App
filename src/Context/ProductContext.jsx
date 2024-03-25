@@ -43,9 +43,10 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
   const placeOrder = () => {
-    const isLogedIn = localStorage.getItem("isLogedIn");
-      console.log(isLogedIn)
-    if (isLogedIn === "true") {
+    // const isLogedIn = localStorage.getItem("isLogedIn");
+    const token = localStorage.getItem("token");
+      // console.log(isLogedIn)
+    if (token) {
       navigate("/CartForm");
     } else {
       
