@@ -15,6 +15,7 @@
     "@types/reactstrap": "^8.7.2",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
+    "botpress-web": "^1.2.3",
     "firebase": "^10.9.0",
     "install": "^0.13.0",
     "jwt-decode": "^4.0.0",

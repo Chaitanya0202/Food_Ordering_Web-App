@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MenuCarousel from "./MenuCarousel";
 import HeroSection from "./HeroSection";
+import ChatBot from "./ChatBot";
 
 function Welcome() {
   const styleHero = {
@@ -97,6 +98,10 @@ function Welcome() {
       </div>
       */}
       <MenuCarousel/>
+      <div className="h-80 w-12">
+      
+      <ChatBot/>
+      </div>
     </>
   );
 }
