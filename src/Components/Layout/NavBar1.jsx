@@ -103,8 +103,8 @@ export default function Navbar() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500" to={"/product"}>PRODUCT</Link>
-                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500">OFFERS</Link>
+                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500" to={"/cartPage"}>PRODUCT</Link>
+                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500" to={"/offers"}>OFFERS</Link>
                    <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500">ABOUT</Link>
                    <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500">CONTACT</Link>
                   </div>

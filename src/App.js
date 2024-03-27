@@ -24,6 +24,7 @@ import CardForm from "./Components/CardForm.jsx";
 import { ToastContainer } from "react-toastify";
 import ForgotePass from "./Components/Layout/ForgotPass.jsx";
 import { useEffect, useState } from "react";
+import Offers from "./Components/Offers.jsx";
 
 function App() {
   
@@ -49,6 +50,7 @@ function App() {
             <Route exact path="/card" element={<CardForm />} />
 
             <Route exact path="/CartForm" element={<CardForm />} />
+            <Route exact path="/offers" element={<Offers/>} />
           </Routes>
         </AppProvider>
         <Footer />
