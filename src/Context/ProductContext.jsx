@@ -19,6 +19,7 @@ const AppProvider = ({ children }) => {
   let navigate = useNavigate();
 
   // const BASE_URL = "https://foododeringwebappserver-production.up.railway.app/";
+  
   const BASE_URL = "http://localhost:8080/";
 
   var [price, setPrice] = useState([
