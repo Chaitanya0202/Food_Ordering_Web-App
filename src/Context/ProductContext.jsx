@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
   const BASE_URL = "http://localhost:8080/";
 
   var [price, setPrice] = useState([
-    23, 40, 50, 15, 60, 80, 50, 30, 83, 48, 23, 10, 58, 900,
+    230, 400, 500, 150, 600, 800, 500, 300, 803, 408, 203, 100, 508, 900,
   ]);
   const [cart, setCart] = useState([]);
 
