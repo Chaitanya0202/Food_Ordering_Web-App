@@ -17,8 +17,7 @@ export default function AddUser() {
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
 
-
-    // const result = await axios.get(`http://localhost:8080/getUserById/${id}`);
+    
     // const result = await axios.get(`http://localhost:8080/getUserById/${id}`);
   };
 
