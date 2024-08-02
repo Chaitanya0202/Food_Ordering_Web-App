@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 import { useGlobelContext } from "../Context/ProductContext";
 import GoogleLoginComponent from "./GoogleLoginComponent";
 
@@ -57,6 +55,8 @@ function LogIn() {
       alert("Enter Valid Creadintial..!");
     }
   };
+
+  
 
   return (
     <>

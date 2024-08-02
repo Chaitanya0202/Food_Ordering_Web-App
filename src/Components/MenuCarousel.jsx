@@ -50,6 +50,8 @@ function MenuCarousel() {
     },
   };
 
+
+  );
   return (
     <>
     <Fade direction="left" duration={1000} delay={200}  distance="20px" cascade>
@@ -57,11 +59,11 @@ function MenuCarousel() {
 
 
       <div className="container mt-5">
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} >
         {product.map((t, index) => (
             <div
-              className="card shadow m-2  "
-              style={{ width: "18rem" }}
+              className=" shadow  "
+              style={{ width: "18rem"}}
               key={index}
             >
               <img src={t.strCategoryThumb} className="card-img-top" alt="..." />
