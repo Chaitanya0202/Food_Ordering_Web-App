@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Fade } from "react-awesome-reveal";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useGlobelContext } from "../Context/ProductContext";
-import { Fade } from "react-awesome-reveal";
 
 function MenuCarousel() {
   const { price, cart, cartAdded, count } = useGlobelContext();
@@ -51,7 +51,7 @@ function MenuCarousel() {
   };
 
 
-  );
+  
   return (
     <>
     <Fade direction="left" duration={1000} delay={200}  distance="20px" cascade>

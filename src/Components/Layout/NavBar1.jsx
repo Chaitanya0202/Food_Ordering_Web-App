@@ -1,15 +1,15 @@
-import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, useNavigate } from "react-router-dom";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Typography from "@mui/material/Typography";
+import { Fragment } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
+import Badge from "@mui/material/Badge";
+import IconButton from "@mui/material/IconButton";
+import { styled } from "@mui/material/styles";
+import { signOut } from "firebase/auth";
 import { useGlobelContext } from "../../Context/ProductContext";
 import { auth } from "./FirebaseConfig";
-import { signOut } from "firebase/auth";
-import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-import { styled } from "@mui/material/styles";
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     right: -3,
@@ -160,15 +160,15 @@ export default function Navbar() {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <div
+                            href="profile"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Your Profile
-                          </a>
+                          </div>
                         )}
                       </Menu.Item>
                       <Menu.Item>
