@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useGlobelContext } from "../Context/ProductContext";
 import GoogleLoginComponent from "./GoogleLoginComponent";
 
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,19 +22,14 @@ function LogIn() {
     // console.log(password);
   };
   const isLogedIn = () => {
-    console.log("lOG IN sUCCESS");
-
+    
     const isLogedIn = localStorage.getItem("isLogedIn");
     localStorage.setItem("isLogedIn", true);
+    toast("Wow so easy!")
+    // alert("succes")
+    navigate("/cartPage");
 
-    toast.success("Log In SuccesFull", {
-      position: "top-center",
-      autoClose:2000,
-      onClose: () => {
-        // Navigate to cartPage after the toast is closed
-        navigate("/cartPage");
-      },
-    });
+    console.log(isLogedIn);
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -55,8 +49,6 @@ function LogIn() {
       alert("Enter Valid Creadintial..!");
     }
   };
-
-  
 
   return (
     <>
