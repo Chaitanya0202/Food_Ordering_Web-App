@@ -1,9 +1,8 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./Components/Home.jsx";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/NavBar";
 import AddUser from "./Components/AddUser";
 import EditUser from "./Components/EditUser";
+import Home from "./Components/Home.jsx";
 import ViewUser from "./Components/ViewUser";
 
 import LogInR from "./Components/Layout/LogInR.jsx";
@@ -12,19 +11,19 @@ import Wellcome from "./Components/Wellcome";
 // import SignUp from './Components/SignUp';
 import MainPage from "./Components/MainPage";
 // import Navbaar from './Components/Navbaar';
-import NavBar1 from "./Components/Layout/NavBar1.jsx";
 import Footer from "./Components/Footer";
+import NavBar1 from "./Components/Layout/NavBar1.jsx";
 
 import CartPage from "./Components/CartPage.jsx";
 import { AppProvider } from "./Context/ProductContext.jsx";
 
-import ShowCart from "./Components/ShowCart.jsx";
-import Profile from "./Components/Profile.jsx";
+import About from "./Components/About.jsx";
 import CardForm from "./Components/CardForm.jsx";
-import { ToastContainer } from "react-toastify";
+import Contact from "./Components/Contact.jsx";
 import ForgotePass from "./Components/Layout/ForgotPass.jsx";
-import { useEffect, useState } from "react";
 import Offers from "./Components/Offers.jsx";
+import Profile from "./Components/Profile.jsx";
+import ShowCart from "./Components/ShowCart.jsx";
 
 function App() {
   
@@ -51,6 +50,8 @@ function App() {
 
             <Route exact path="/CartForm" element={<CardForm />} />
             <Route exact path="/offers" element={<Offers/>} />
+            <Route exact path="/contact" element={<Contact/>} />
+            <Route exact path="/about" element={<About/>} />
           </Routes>
         </AppProvider>
         <Footer />

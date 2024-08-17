@@ -105,8 +105,8 @@ export default function Navbar() {
                   <div className="flex space-x-4">
                    <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500" to={"/cartPage"}>PRODUCT</Link>
                    <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500" to={"/offers"}>OFFERS</Link>
-                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500">ABOUT</Link>
-                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500">CONTACT</Link>
+                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500"  to={"/about"}>ABOUT</Link>
+                   <Link className="bg-gray-900 text-white p-2 rounded-lg hover:bg-gray-500"  to={"/contact"}>CONTACT</Link>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <div
-                            href="profile"
+                            onClick={()=>{navigate("/p")}}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
